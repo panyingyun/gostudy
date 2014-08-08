@@ -1,0 +1,10 @@
+.DS_Store
+*.swp
+*.swo
+*.exe
+*.exe~
+*.pprof
+*.memprof
+main
+exp1
+exp2
