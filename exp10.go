@@ -19,10 +19,10 @@ func sum(a []int64, c chan int64, flag string) {
 	c <- sum // send sum to c
 }
 
-func loop() {
-	for {
-	}
-}
+// func loop() {
+// 	for {
+// 	}
+// }
 
 func main() {
 	tStart := time.Now()
@@ -37,16 +37,17 @@ func main() {
 		s[index] = int64(index * 2)
 	}
 
-	c := make(chan int64)
+	c1 := make(chan int64)
+	c2 := make(chan int64)
 
-	go sum(s[:len(s)/2], c, "Google")
-	go sum(s[len(s)/2:], c, "Apple")
+	go sum(s[:len(s)/2], c1, "Google")
+	go sum(s[len(s)/2:], c2, "Apple")
 	//go loop()
 	fmt.Println("Gorountine number = ", runtime.NumGoroutine())
 
-	sum1 := <-c
+	sum1 := <-c1
 	fmt.Println(sum1)
-	sum2 := <-c
+	sum2 := <-c2
 	fmt.Println(sum2)
 	fmt.Println(sum1 + sum2)
 	tEnd := time.Now()
