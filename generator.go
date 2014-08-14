@@ -22,10 +22,18 @@ func boring(msg string) <-chan string {
 }
 
 func main() {
-	ch := boring("google")
-	fmt.Println("I'm listening.")
+	// ch := boring("google")
+	// fmt.Println("I'm listening.")
+	// for i := 0; i < 5; i++ {
+	// 	fmt.Println("receive str:", <-ch)
+	// }
+
+	google := boring("google")
+	apple := boring("apple")
 	for i := 0; i < 5; i++ {
-		fmt.Println("receive str:", <-ch)
+		fmt.Println(<-google)
+		fmt.Println(<-apple)
 	}
+
 	fmt.Println("You're boing; I'm leaving.")
 }
