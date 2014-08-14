@@ -37,8 +37,8 @@ func main() {
 		s[index] = int64(index * 2)
 	}
 
-	c1 := make(chan int64)
-	c2 := make(chan int64)
+	c1 := make(chan int64, 1)
+	c2 := make(chan int64, 1)
 
 	go sum(s[:len(s)/2], c1, "Google")
 	go sum(s[len(s)/2:], c2, "Apple")
