@@ -13,33 +13,12 @@ func main() {
 	fmt.Println(a)
 	fmt.Println(a.Len())
 	fmt.Println(a.Cap())
-
-	out, error := a.Pop()
-	if error != nil {
-		fmt.Println(error)
-	} else {
-		fmt.Println(out)
+	for {
+		item, err := a.Pop()
+		if err != nil {
+			fmt.Println(err)
+			break
+		}
+		fmt.Println(item)
 	}
-
-	out, error = a.Pop()
-	if error != nil {
-		fmt.Println(error)
-	} else {
-		fmt.Println(out)
-	}
-
-	out, error = a.Pop()
-	if error != nil {
-		fmt.Println(error)
-	} else {
-		fmt.Println(out)
-	}
-
-	out, error = a.Pop()
-	if error != nil {
-		fmt.Println(error)
-	} else {
-		fmt.Println(out)
-	}
-
 }
