@@ -29,6 +29,7 @@ func fakeSearch(kind string) Search {
 }
 
 func Google10(query string) (results []Result) {
+	//fmt.Println("results = ", results)
 	results = append(results, Web(query))
 	results = append(results, Image(query))
 	results = append(results, Video(query))
@@ -88,7 +89,10 @@ func Google30(query string) (results []Result) {
 func main() {
 	rand.Seed(time.Now().UnixNano())
 	start := time.Now()
-	results := Google30("golang")
+	results := Google10("golang")
+	//results := Google20("golang")
+	//results := Google21("golang")
+	//results := Google30("golang")
 	elapsed := time.Since(start)
 	fmt.Println(results)
 	fmt.Println(elapsed)
